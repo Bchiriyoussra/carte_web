@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1066px;
+            height: 540px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/tun_gouvernorats_utm_0.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[29.67498966036932,-0.26752992319882346],[38.032615871481866,19.58961237945224]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_tun_gouvernorats_utm_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IDG'] !== null ? autolinker.link(feature.properties['IDG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOMG'] !== null ? autolinker.link(feature.properties['NOMG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IDPAYS'] !== null ? autolinker.link(feature.properties['IDPAYS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_tun_gouvernorats_utm_0_0(feature) {
+            switch(String(feature.properties['NOMG'])) {
+                case 'Ariana':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,0,32,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Beja':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(209,27,48,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Ben Arous':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(216,55,64,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Bizerte':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(223,82,81,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Gabes':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,110,97,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Gafsa':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(237,138,114,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Jendouba':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(244,165,130,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Kairouan':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(245,179,150,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Kasserine':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(245,193,169,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Kebili':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,206,189,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Le Kef':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,220,208,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Mahdia':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,234,228,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Manouba':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,247,247,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Medenine':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,239,243,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Monastir':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,231,239,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Nabeul':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(197,222,235,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sfax':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(180,214,231,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sidi Bou Zid':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(163,206,227,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Siliana':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(146,197,222,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sousse':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(122,183,215,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Tataouine':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(99,169,207,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Tozeur':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(75,155,199,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Tunis':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(52,141,192,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Zaghouan':
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(28,127,184,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_tun_gouvernorats_utm_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(5,113,176,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_tun_gouvernorats_utm_0');
+        map.getPane('pane_tun_gouvernorats_utm_0').style.zIndex = 400;
+        map.getPane('pane_tun_gouvernorats_utm_0').style['mix-blend-mode'] = 'normal';
+        var layer_tun_gouvernorats_utm_0 = new L.geoJson(json_tun_gouvernorats_utm_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_tun_gouvernorats_utm_0',
+            layerName: 'layer_tun_gouvernorats_utm_0',
+            pane: 'pane_tun_gouvernorats_utm_0',
+            onEachFeature: pop_tun_gouvernorats_utm_0,
+            style: style_tun_gouvernorats_utm_0_0,
+        });
+        bounds_group.addLayer(layer_tun_gouvernorats_utm_0);
+        map.addLayer(layer_tun_gouvernorats_utm_0);
+        setBounds();
+        var i = 0;
+        layer_tun_gouvernorats_utm_0.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['NOMG'] !== null?String('<div style="color: #000000; font-size: 10pt; font-style: italic; font-family: \'Monotype Corsiva\', sans-serif;">' + layer.feature.properties['NOMG']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_tun_gouvernorats_utm_0'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_tun_gouvernorats_utm_0]);
+        map.on("zoomend", function(){
+            resetLabels([layer_tun_gouvernorats_utm_0]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_tun_gouvernorats_utm_0]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_tun_gouvernorats_utm_0]);
+        });
+        </script>
+    </body>
+</html>
